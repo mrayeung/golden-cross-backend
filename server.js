@@ -17,7 +17,7 @@ const indexSymbols = {
 
 // Cached signal data
 let cachedSignals = {
-  'S&P': {},
+  'SP500': {},
   'Nasdaq': {},
   'DowJones': {}
 };
