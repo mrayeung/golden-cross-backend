@@ -72,13 +72,18 @@ cron.schedule('0 * * * *', async () => {
 });
 
 // API endpoint
-app.get('/api/indicator', (req, res) => {
+app.get('/api/indicator', async (req, res) => {
   const index = req.query.index;
-  if (!cachedSignals[index]) {
+  if (!indexSymbols[index]) {
     return res.status(400).json({ error: 'Invalid index' });
   }
-  res.json(cachedSignals[index]);
+
+  // Run detection fresh on every request
+  const freshData = await detectSignal(index);
+  cachedSignals[index] = freshData; // optional cache update
+  res.json(freshData);
 });
+
 
 // Start server
 app.listen(PORT, () => {
