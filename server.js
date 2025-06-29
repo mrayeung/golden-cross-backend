@@ -10,7 +10,7 @@ app.use(cors());
 
 // Define symbols per index
 const indexSymbols = {
-  'S&P': ["AAPL", "MSFT", "GOOGL", "AMZN", "NVDA"],
+  'SP500': ["AAPL", "MSFT", "GOOGL", "AMZN", "NVDA"],
   'Nasdaq': ["AAPL", "MSFT", "GOOGL", "AMZN", "META"],
   'DowJones': ["AAPL", "MSFT", "JNJ", "V", "WMT"]
 };
